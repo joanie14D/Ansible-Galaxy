@@ -1,0 +1,11 @@
+phpmyadmin/
+├── defaults
+│   └── main.yml
+├── handlers
+│   └── main.yml
+├── tasks
+│   └── main.yml
+├── templates
+│   └── config.inc.php.j2
+└── meta
+    └── main.yml
