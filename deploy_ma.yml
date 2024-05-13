@@ -1,0 +1,11 @@
+# deploy_pma.yml
+
+- name: Deploy PHPMyAdmin and MariaDB
+  hosts: my_target_server
+  become: yes
+  vars:
+    mysql_root_password: my_root_password
+    mysql_test_user_password: my_test_user_password
+  roles:
+    - database
+    - phpmyadmin
