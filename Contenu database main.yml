@@ -1,0 +1,34 @@
+# database/tasks/main.yml
+
+- name: Install MariaDB
+  package:
+    name: mariadb-server
+    state: present
+
+- name: Start MariaDB Service
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Secure MariaDB Installation
+  mysql_secure_installation:
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    change_root_password: yes
+    root_password: "{{ mysql_root_password }}"
+    remove_anonymous_user: yes
+    remove_test_database: yes
+    reload_privilege_tables: yes
+
+- name: Create Database
+  mysql_db:
+    name: test_db
+    state: present
+
+- name: Create Database User
+  mysql_user:
+    name: test_user
+    password: "{{ mysql_test_user_password }}"
+    priv: "test_db.*:ALL"
+    state: present
