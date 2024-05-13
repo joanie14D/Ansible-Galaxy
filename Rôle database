@@ -1,0 +1,10 @@
+database/
+├── defaults
+│   └── main.yml
+├── handlers
+│   └── main.yml
+├── tasks
+│   └── main.yml
+├── meta
+│   └── main.yml
+└── templates
