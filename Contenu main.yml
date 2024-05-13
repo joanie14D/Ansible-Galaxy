@@ -1,0 +1,11 @@
+# phpmyadmin/tasks/main.yml
+
+- name: Install PHPMyAdmin
+  package:
+    name: phpmyadmin
+    state: present
+
+- name: Copy PHPMyAdmin configuration file
+  template:
+    src: config.inc.php.j2
+    dest: /etc/phpmyadmin/config.inc.php
